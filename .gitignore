@@ -1,0 +1,19 @@
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+
+# MonoDevelop IDE leavings...
+*.pidb
+*.userprefs
+*.csproj
+*.sln
+*.unityproj
+
+# Debugging symbols...
+*.pdb
+*.mdb
+
+Temp/
+Library/
+obj/
+*.svd
