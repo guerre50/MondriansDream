@@ -93,26 +93,15 @@ public class Edge : MonoBehaviour {
 		Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Vector3 target = transform.position;
 		int margin = 1;
+		int axis = (direction == EdgeDirection.Horizontal ? 2 : 0);
 		
-		if (direction == EdgeDirection.Horizontal) {
-			if (position.z > previous.transform.position.z + margin && position.z < next.transform.position.z - margin)
-				target.z = position.z;
-			else {
-				if (position.z < previous.transform.position.z + margin) {
-					target.z = 	previous.transform.position.z +  margin;
-				} else {
-					target.z = next.transform.position.z - margin;
-				}
-			}
-		} else {
-			if (position.x > previous.transform.position.x + margin && position.x < next.transform.position.x - margin)
-				target.x = position.x;
-			else {
-				if (position.x < previous.transform.position.x + margin) {
-					target.x = 	previous.transform.position.x +  margin;
-				} else {
-					target.x = next.transform.position.x - margin;
-				}
+		if (position[axis] > previous.transform.position[axis] + margin && position[axis] < next.transform.position[axis] - margin)
+			target[axis] = position[axis];
+		else {
+			if (position[axis] < previous.transform.position[axis] + margin) {
+				target[axis] = 	previous.transform.position[axis] +  margin;
+			} else {
+				target[axis] = next.transform.position[axis] - margin;
 			}
 		}
 		
